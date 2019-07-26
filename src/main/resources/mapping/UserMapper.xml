@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zb.demo.dao.UserMapper">
+
+
+    <resultMap type="User" id="UserMap">
+        <id column="id" property="id"/>
+        <association property="role" javaType="Role">
+            <id column="rid" property="id"/>
+        </association>
+    </resultMap>
+
+    <select id="findAll" parameterType="User" resultType="User">
+      select *,sr.`id`,sr.`roleName` from `smbms_user` su inner join `smbms_role` sr where  su.`userRole`=sr.`id`
+    </select>
+
+
+    <select id="role" resultType="Role">
+        select * from `smbms_role`
+    </select>
+
+    <insert id="newUser" parameterType="User">
+        insert into`smbms_user`(`userName`,`gender`,`birthday`,`userRole`,`phone`,`address`)values(#{userName},#{gender},#{birthday},#{userRole},#{phone},#{address})
+    </insert>
+</mapper>

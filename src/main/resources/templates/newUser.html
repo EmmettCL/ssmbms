@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/user/new" method="post">
+        <P>姓名：<input type="text" name="userName"/></P>
+        <P>性别：
+            <input type="checkbox" name="gender" value="1"/>男
+            <input type="checkbox" name="gender" value="2"/>女
+        </P>
+        <P>生日：<input type="text" name="birthday"/></P>
+        <P>角色：
+            <select name="userRole">
+                <option th:each="rl:${role}" value="${rl.id}" th:text="${rl.roleName}"></option>
+            </select>
+        </P>
+        <P>电话：<input type="text" name="phone"/></P>
+        <P>地址：<input type="text" name="address"/></P>
+        <input type="submit"/>
+    </form>
+</body>
+</html>
