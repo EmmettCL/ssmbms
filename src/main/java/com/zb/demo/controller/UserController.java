@@ -40,4 +40,9 @@ public class UserController {
         model.addAttribute("role",llst);
         return "newUser";
     }
+
+    @RequestMapping("66")
+    public String pp(){
+        return null;
+    }
 }
