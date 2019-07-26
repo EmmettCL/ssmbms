@@ -41,8 +41,5 @@ public class UserController {
         return "newUser";
     }
 
-    @RequestMapping("66")
-    public String pp(){
-        return null;
-    }
+
 }
